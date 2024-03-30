@@ -16,11 +16,11 @@ I recently found that we can use SSH's built-in function to establish a VPN to h
 
 ## Pros
 ### Convenience
-- compared to proprietary network devices' VPN service setup, or other software service counterparts, just the Windows VPN client configuration by itself is unfriendly to new users, for example those diverse combinations of different encryption options
+- Nearly zero-configuration is needed, compared to the VPN service of proprietary network devices, or other software service counterparts. Even the Windows VPN client configuration by itself is unfriendly to new users, as an example, those diverse combinations of different encryption options is much a headache to get familiar with.
 
 ### Security
-- regarding to all traffic are encrypted thru SSH, the encryption of SSH should be trustworthy, otherwise it won't be the de-facto standard of connecting Linux terminals. So we don't need to worry about if there're any protocols in use that are unencrypted or easily breakable
-- since the most stringent network censorship system still needs to allow SSH protocol to pass thru, to ensure basic network management and operation, standard VPN is known to behave very bad to this concern, since it usually uses standardized port number and has very significant 明显的 近乎透明的 报文特征, is easily banned by the network infrastructure 网络审查机构
+- All traffic are encrypted thru SSH. The encryption of SSH should be trustworthy, otherwise it won't be the de-facto standard of connecting Linux terminals. So we don't need to worry about if there're any services in use that are unencrypted or easily deciphered.
+- Masquerade the traffic. Since even the most stringent network censorship system still needs to allow SSH protocol to pass thru, to ensure fundamental network management and operation. Standard VPN is known to behave very bad to this concern, since it usually uses standardized port number and has identifiable pattern, so tend to be easily banned by the censorship agency inside the network infrastructure.
 
 ## Cons
 
