@@ -1,6 +1,6 @@
 # Establish a VPN through SSH
 ## Introduction
-I recently found that we can use SSH's built-in function to establish a VPN to home network, which can hugely simplify the setup, and has a lot of advantages such as security  and it helps masquerade our traffic in some specific network environment.
+I recently found that we can use SSH's built-in function to establish a VPN to home network, which can hugely simplify the setup, and has a lot of advantages such as security, and it helps masquerading our traffic from the outside network(for example, to against censorship).
 ## Network topology
 ## Video demo
 ## Prerequisites
