@@ -29,10 +29,12 @@ All the following steps are invoked on the Windows client.
   - `piddns` is a service name defined in my ssh client config file, see [this](#ssh-client-config) for reference. You can also use tedious form like `ssh -D 10800 username@sample.ddns.net -p 22222 -i /path/to/id_rsa` if you prefer.
 2. On SSTap, add a proxy server as follows. Select `Type` as `SOCKS 5`, `Server IP` as `localhost` or `127.0.0.1`, `Port` fill in the same port number you entered previously in the `ssh -D` option, and leave other options as is. 
   ![add a proxy server](images/sstap-add-proxy-server.jpg)
+
   These info help SSTap to create a TUN device with the destination specified.
   ![create a TUN device](images/sstap-ipconfig.jpg)
 3. On SSTap, add a rule as follows. Choose names as you wish, `Proxify DNS request` select `Proxify`, `Action type` as `Proxify`, and in the `Rules list` fill in `192.168.31.0/24`, if your subnet is different, such as `192.168.0.0/24` or `192.168.1.0/24` used by many router by default, change the value of this field accordingly. 
   ![add a rule](images/sstap-add-rule.jpg)
+  
   These info help SSTap create routing table entry that says `192.168.31.0/24` goes to the TUN device created.
   ![routing table entry](images/sstap-routeprint.jpg)
 4. On SSTap, click `CONNECT`, wait a few seconds until the SSTap window minimized, off you go. Now you can access the services like you're at home, the experience depends on both sides' upload & download speed, of course.
