@@ -17,7 +17,7 @@ After establishing VPN, the logical topology looks like below, the laptop seems 
 But actually all the traffic from the client laptop to and from the devices of my home network, is thru raspberry pi, as in [previous pic](#connecting-ssh-thru-mobile-hotspot).
 ![Logical connection of the VPN](images/logical.jpg)
 ## Video demo
-<iframe width="1366" height="768" src="https://www.youtube.com/embed/L8IZxGBLlws?si=SBYr4GPY3sLg2oos" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[![Video demo on Youtube](https://img.youtube.com/vi/L8IZxGBLlws/0.jpg)](https://www.youtube.com/watch?v=L8IZxGBLlws)
 
 ## Steps to connect the VPN
 These are the simplified steps, if you fail in any step, before submit an issue / comment, please read thru the [prerequisites](#prerequisites).
