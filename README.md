@@ -18,6 +18,7 @@ But actually all the traffic from the client laptop to and from the devices of m
 ![Logical connection of the VPN](images/logical.jpg)
 ## Video demo
 <iframe width="1366" height="768" src="https://www.youtube.com/embed/L8IZxGBLlws?si=SBYr4GPY3sLg2oos" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## Steps to connect the VPN
 These are the simplified steps, if you fail in any step, before submit an issue / comment, please read thru the [prerequisites](#prerequisites).
 
