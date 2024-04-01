@@ -4,7 +4,7 @@ I recently found[^1] that we can use SSH's built-in function(utilized from the c
 
 In my case, server is Linux(actually a raspberry pi running 24x7), client is Windows 10. If you prefer a Linux client, I'd recommend you consult [^1].
 
-This article is a detailed(somewhat tedious) discussion of the usage scenario. For a quick demonstration, skip ahead to the [video demo](#video-demo) and [steps to connect the VPN](#steps-to-connect-the-vpn).
+This article is a detailed(somewhat tedious) discussion of the usage scenario. For a quick demonstration, skip ahead to the [video demo](#video-demo) or [steps to connect the VPN](#steps-to-connect-the-vpn).
 ## Topology of my home network
 I've got a typical home network as most users: devices all connected to a router, in subnet 192.168.31.0/24. Their IP addresses in the picture are fabricated, for demonstration only.
 ![Topology of my home network](images/topology.jpg)
@@ -14,9 +14,10 @@ Outside home, I connect the Windows laptop to the SSH of my raspberry pi thru mo
 ## Logical connection of the VPN
 After establishing VPN, the logical topology looks like below, the laptop seems connected directly to the home router(as if the laptop is still inside home network). 
 
-But actually all the traffic from the client laptop to the devices of my home network, is thru raspberry pi, as in [the previous pic](#connecting-ssh-thru-mobile-hotspot).
+But actually all the traffic from the client laptop to and from the devices of my home network, is thru raspberry pi, as in [previous pic](#connecting-ssh-thru-mobile-hotspot).
 ![Logical connection of the VPN](images/logical.jpg)
 ## Video demo
+<iframe width="1366" height="768" src="https://www.youtube.com/embed/L8IZxGBLlws?si=SBYr4GPY3sLg2oos" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 ## Steps to connect the VPN
 These are the simplified steps, if you fail in any step, before submit an issue / comment, please read thru the [prerequisites](#prerequisites).
 
@@ -64,7 +65,7 @@ All the following steps are invoked on the Windows client.
   - Furthermore, some services can't be easily changed to different ports other than the default one(there maybe limitations on both/either side of the server/client, e.g. Windows file sharing service), hence it's impossible to port-forward same services from different devices, and many well known ports may be banned by the network infrastructure. But `ssh` we used here has no such limitation, you can port forward it to any unused port freely.
 
 ### Security
-- All traffic is encrypted thru SSH. The encryption of SSH should be trustworthy, otherwise it won't be the de-facto standard of connecting Linux terminals. So we don't need to worry about if there're any services in use that are unencrypted or easily deciphered.
+- All traffic is encrypted thru SSH. The encryption of SSH should be trustworthy, otherwise it won't be the de-facto standard of connecting Linux terminals. So we don't need to worry about if there're any services in use that are unencrypted or can be easily deciphered.
 - Key pairs are far more secured than passwords, do not use passwords for any of your SSH account, use different key for different account, change key pairs for each account frequently.
 - Masquerade the traffic. Since even the most stringent Internet censorship system still needs to allow SSH protocol to pass thru, to ensure fundamental network management and operation. Standard VPN is known to behave very bad to this concern, since it usually uses standardized port number and has identifiable pattern, so tend to be easily banned by the censorship agency(e.g. some governments forbid personal vpn usage).
 - There are a lot of NAS / software routers that provide Internet accessing features. But either they look too complicated, different from one to another, or I'm not very confident about their security & loyalty(since a lot of them are provided in binary form by enthusiasts, though open source software, but I can't figure out if they are modified for some purpose). And just as an example, in the field of file management, I don't quite anticipate such a third-party(as in the position of Windows OS) interface(usually browser based) can be very user friendly, compared to the Windows file sharing service we are so familiar with, which we can access a very large file on-the-fly without downloading the whole file first(such as watching a video).
@@ -75,7 +76,7 @@ All the following steps are invoked on the Windows client.
 - As security concerns mentioned in [conclusions](#conclusions), we need to know how to disable the `-D` function from within SSH service, to make sure when we don't need this feature, others(especially hackers) can't utilize it at the same time.
 
 ## Conclusions
-This example shows that any device(even without root permission) in our home network can be easily used as a trojan horse, thru SSH, a standard service that most Linux servers will install(although nowadays most users tend to secure SSH thru private key pairs, still there're many people use simple passwords which are very easily guessed by brutal force attack), not to mention that hackers may use a lot more well tailored tools to control your network/devices.
+This example shows that any device(even without root permission) in our home network can be easily used as a trojan horse, thru SSH, a standard service that most Linux servers will install(although nowadays most users tend to secure SSH thru private key pairs, still there're many people use simple passwords which are very easily guessed by brutal force attack), not to mention that hackers may use a lot better tailored tools to control your network/devices.
 
 So it's never over emphasized to make sure you followed Internet security best practices.
 
